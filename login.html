@@ -1,0 +1,93 @@
+<!--
+Author: Peter Rosipal
+Website: 3nn.co.uk
+From Peter with Love
+-->
+
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="Fri, Jan 01 1970 00:00:00 GMT" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta name="MobileOptimized" content="width">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+
+	<title>Chat Login</title>
+	<script src="http://cdn.pubnub.com/pubnub.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<div class="header">
+		<h1>Chat console</h1>
+	</div>
+
+	<div class="main">
+		<div class="container">
+			<div class="login-box">
+
+				<form id="chat-input" class="chat-input">
+					<input id="myUserName" type="text" placeholder="Enter Your name" class="userNameBar" />
+
+					<input list="connectTo" name="connectTo" id="toRoom" placeholder="Select Room" autocomplete="off">
+
+					<datalist id="connectTo">
+						<option value="Room1">
+						<option value="Room2">
+						<option value="Room3">
+						<option value="Room4">
+						<option value="Room5">
+					</datalist>
+
+					<input type="submit" id="joinButton" class="btn btn-primary joinButton" name="Connect" value="Connect" onclick="joinPm()"/>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<span>Simple PubNub chat client. By Sipo 3NN</span>
+	</div>
+
+	<script type="text/javascript">
+		/*var images = ['Images/dhl-bg.jpg','Images/wolf.jpg','Images/chat.jpg','Images/clif.jpg','Images/colors.jpg','Images/girl.jpg','Images/jerry.jpg','Images/mountin.jpg','Images/road.jpg','Images/sky.jpg','Images/wolf2.jpg'];
+		document.getElementsByClassName('main')[0].style.backgroundImage = 'url(' + images[Math.round(Math.random() * images.length)] + ')';*/
+
+		document.getElementById("myUserName").value = localStorage.getItem("username");
+		document.getElementById("toRoom").value = localStorage.getItem("room");
+
+		function joinPm() {
+			var userx = $('#myUserName').val();
+			var room = $('#toRoom').val();
+			var user = userx.replace(/\s+/g, '-');
+
+			localStorage.setItem("username", user);
+			localStorage.setItem("room", room);
+
+			var linkb = 'pm.html?' + user + ',' + room;
+			height=400;
+			width=330;
+			t=window.innerHeight-height;
+			l=window.innerWidth-width;
+			window.location = 'Login.html';
+			window.open(linkb,'mywin','width=300,height=405,top='+t+',left='+l);
+		}
+	</script>
+
+	<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "100%";
+		}
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+		}
+	</script>
+
+</body>
+</html>
