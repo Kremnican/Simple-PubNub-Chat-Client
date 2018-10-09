@@ -1,3 +1,4 @@
+Pub nub chat client - "out of box" solution - by PeteR
 I am not the author of emoticons part, but unfortunatelly I can't remember the source I have got it from.. 
 I do not claim any credit for emoticons :)
 Feel free to use this simple chat client and don't hesitate to contribute.
